@@ -68,6 +68,7 @@ nav div a {
     height: 85vh;
 }
 
+.logo-half,
 .typing {
     color: #f9AA33;
 }
@@ -76,14 +77,14 @@ nav div a {
     background-color: #f9AA33;
     margin-right: 16px;
     width: 160px;
-    background-color: red !important;
 }
 
 /* trending section  */
 
 section.trending-section {
     height: 80vh;
-    background: red;
+    width: 100%;
+    padding: 30px 200px;
 }
 
 section .post-slider {
@@ -91,7 +92,8 @@ section .post-slider {
 
 }
 
-.main section.trending-section #ne {
+section.trending-section #ne {
+
     color: red;
     background: red;
     border: 1px solid red;
@@ -101,6 +103,13 @@ section .post-slider {
     border: 1px dashed red;
 
 }
+
+/* latest section */
+section.latest-section {
+    height: 80vh;
+    width: 100%;
+}
+
 
 
 /* content/post section */
