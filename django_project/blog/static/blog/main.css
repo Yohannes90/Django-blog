@@ -134,21 +134,11 @@ section.latest-section {
     margin-bottom: 20px;
 }
 
-.card {
+.media {
     border-radius: 15px;
 }
 
-.card .img-card {
-    height: 175px;
-    overflow: hidden;
-}
-
-.card img {
-    border-radius: 20px;
-    height: 300px;
-}
-
-.card-body p {
+.card-mini {
     height: 78px;
     overflow: hidden;
 }

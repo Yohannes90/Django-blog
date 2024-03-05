@@ -63,10 +63,11 @@
                 </div>
             </div>
         </article> {% endcomment %}
-        <div class="card mb-4">
+        <!-- <div class="card mb-4">
             <div class="img-card">
                 <img src="https://enviragallery.com/wp-content/uploads/2016/05/Set-Default-Featured-Image-300x145.jpg" class="card-img-top" alt="...">
             </div>
+            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
             <div class="card-body">
               <h4><a class="card-title" href="#">{{ post.title }}</a></h4>
               <p class="card-text">{{ post.content }}</p>
@@ -75,6 +76,18 @@
                 <small class="text-muted">{{ post.date_posted|date:"F, d, Y"}}</small>
               </div>
             </div>
-          </div>
+          </div> -->
+
+          <article class="media content-section">
+              <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+            <div class="card-body">
+                <h2><a class="card-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                <p class="card-text card-mini">{{ post.content }}</p>
+                <div class="article-metadata">
+                  <a class="mr-2" href="{% url 'profile' %}">{{ post.author }}</a>
+                  <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                </div>
+            </div>
+          </article>
     {% endfor %}
 {% endblock content %}
