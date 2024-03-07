@@ -44,7 +44,7 @@ nav {
     height: 11vh;
 }
 
-nav .navbar-brand {
+.navbar-brand {
     color: #f9AA33;
     font-family: cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 900;
@@ -88,7 +88,7 @@ nav div a {
 .btn {
     background-color: #f9AA33;
     margin-right: 16px;
-    width: 160px;
+    /* width: 160px; */
 }
 
 /* trending section  */
