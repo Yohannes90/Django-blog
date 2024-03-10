@@ -1,3 +1,4 @@
+from django import forms
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
@@ -8,7 +9,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Post
+from .models import Post, Category
 
 
 def home(request):
@@ -43,7 +44,12 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'category', 'content']
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.fields['category'] = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label="Select Category")
+        return form
 
     def form_valid(self, form):
         form.instance.author = self.request.user
