@@ -1,7 +1,7 @@
 {% extends "blog/base.html" %}
 
 {% block hero %}
-    <section class="hero-section py-5 mb-1 bg-light">
+    {% comment %} <section class="hero-section py-5 mb-1 bg-light">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
@@ -13,39 +13,23 @@
                 <div class="col-lg-6"><img alt="" class="img-fluid" src="https://reutersinstitute.politics.ox.ac.uk/sites/default/files/2023-01/midjourney.jpg"></div>
             </div>
         </div>
+    </section> {% endcomment %}
+    <section class="hero-section py-5 mb-1">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h1 class="display-3 fw-bold">All things tech, All the time <br><span class="typing">TechCircle.</span></h1>
+                    <p class="lead my-4">Tech blogs can cover a wide range of topics. So, if your passion revolves around technology, give blogging a shot.</p>
+                    <a class="btn btn-lg" href="{% url 'register' %}">Get Started</a>
+                    <a class="btn btn-lg" href="{% url 'login' %}">Sign in</a>
+                </div>
+                <div class="col-lg-6"><img alt="" class="img-fluid" src="https://reutersinstitute.politics.ox.ac.uk/sites/default/files/2023-01/midjourney.jpg" style="height: 100%; object-fit: cover;"></div>
+            </div>
+        </div>
     </section>
 
 {% endblock hero %}
 
-{% block trending %}
-    <section class="trending-section py-5 bg-white">
-        <div class="post-slider">
-            <h1 class="slider-title">Trending Posts</h1>
-            <div class="post-wrapper">
-                <div class="post" id="nee">1</div>
-                <div class="post">2</div>
-                <div class="post">3</div>
-                <div class="post">4</div>
-                <div class="post">5</div>
-            </div>
-        </div>
-    </section>
-{% endblock trending %}
-
-{% block latest %}
-    <section class="latest-section py-5 bg-light">
-        <div class="post-slider">
-            <h1 class="slider-title">Latest Posts</h1>
-            <div class="post-wrapper">
-                <div class="post" id="nee">1</div>
-                <div class="post">2</div>
-                <div class="post">3</div>
-                <div class="post">4</div>
-                <div class="post">5</div>
-            </div>
-        </div>
-    </section>
-{% endblock latest %}
 
 {% block content %}
 
@@ -56,9 +40,15 @@
                 <h2><a class="card-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
                 <p class="card-text card-mini">{{ post.content }}</p>
                 <div class="article-metadata">
+                  <a class="mr-2 border pr-3 pl-3" href="{% url 'category-posts' post.category %}">{{ post.category }}</a>
                   <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-                  <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.category }}</a>
                   <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                  <a class="mr-2 float-end mr-3" href="">
+                    <form action="{% url 'like-post' post.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">{{ total_likes }} Like</button>
+                    </form>
+                  </a>
                 </div>
             </div>
           </article>
