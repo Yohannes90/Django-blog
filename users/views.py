@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
+from blog.models import Category
 from django.contrib import messages
 
 def register(request):
@@ -13,7 +14,12 @@ def register(request):
             return redirect('login')
     else:
         form = UserRegistrationForm()
-    return render(request, 'users/register.html', {'form': form})
+    categories = Category.objects.all()
+    context = {
+        'categories': categories,
+        'form': form
+    }
+    return render(request, 'users/register.html', context)
 
 @login_required
 def profile(request):
@@ -31,8 +37,9 @@ def profile(request):
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
-
+    categories = Category.objects.all()
     context = {
+        'categories': categories,
         'u_form': u_form,
         'p_form': p_form
     }
