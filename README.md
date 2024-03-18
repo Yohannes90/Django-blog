@@ -13,11 +13,10 @@
 ## Overview
 
 - Welcome to my portfolio project, This project is a tech community blogging website that provides a platform for individuals interested in tech to share their thoughts, ideas, opinions, and information.
-<div align="center">
-    <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*YhjKgGVWooqS9BHNemL8uQ.png" height=auto>
-</ div>
 - You can access a blog post about it [here](https://medium.com/@mekonnenyohannes90/portfolio-project-tech-community-blogging-website-e50ada9c841b/).
 - You can access the live demo [here](https://www.techcircleethio.me/).
+
+<img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*YhjKgGVWooqS9BHNemL8uQ.png" height=auto>
 
 
 ## Built With
@@ -155,10 +154,8 @@
     - etc
 
 ## Things to include in near Future
-    - Read more and less buttons in education and training section
-    - Copy to clipboard on click for long links
-    - Change picture
-    - Add better projects
+    - Group chating
+    - Event organizing
 
 
 ## Usage
